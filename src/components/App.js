@@ -37,6 +37,34 @@ class App extends Component {
           id: 6,
           author: "Gandhi",
           body: "Be the change that you wish to see in the world."
+        },
+        {
+          id: 7,
+          author: "Mark Twain",
+          body: "If you tell the truth, you don't have to remember anything."
+        },
+        {
+          id: 8,
+          author: "Elbert Hubbard",
+          body:
+            "A friend is someone who knows all about you and still loves you."
+        },
+        {
+          id: 9,
+          author: "Oscar Wilde",
+          body:
+            "I am so clever that sometimes I don't understand a single word of what I am saying."
+        },
+        {
+          id: 10,
+          author: "Ralph Waldo",
+          body:
+            "So be yourself in a world that is constantly trying to make you something else is the greatest accomplishment."
+        },
+        {
+          id: 11,
+          author: "Stephen Chbosky",
+          body: "We accept the love we think we deserve."
         }
       ],
       currentQuote: {
@@ -46,9 +74,25 @@ class App extends Component {
     };
   }
 
+  handleEnter = e => {
+    let totalQuotes = this.state.quotes.length;
+    let min = Math.ceil(1);
+    let max = Math.floor(totalQuotes);
+    let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (e.key === "Enter") {
+      this.state.quotes.forEach(item => {
+        if (item.id === randomNumber) {
+          this.setState({
+            currentQuote: { body: item.body, author: item.author }
+          });
+        }
+        return 0;
+      });
+    }
+  };
+
   handleClick = () => {
     let totalQuotes = this.state.quotes.length;
-    console.log(totalQuotes);
     let min = Math.ceil(1);
     let max = Math.floor(totalQuotes);
     let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -68,6 +112,7 @@ class App extends Component {
       <div style={centerStyling}>
         <Quote
           clickAction={this.handleClick}
+          enterAction={this.handleEnter}
           quoteText={this.state.currentQuote.body}
           quoteAuthor={this.state.currentQuote.author}
         />
