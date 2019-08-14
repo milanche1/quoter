@@ -27,27 +27,50 @@ class App extends Component {
           id: 4,
           author: "Cicero",
           body: "A room without books is like a body without a soul."
+        },
+        {
+          id: 5,
+          author: "Mae West",
+          body: "You only live once, but if you do it right, once is enough"
+        },
+        {
+          id: 6,
+          author: "Gandhi",
+          body: "Be the change that you wish to see in the world."
         }
-      ]
+      ],
+      currentQuote: {
+        author: "",
+        body: ""
+      }
     };
   }
 
   handleClick = () => {
-    const min = 1;
-    const max = 5;
-    const randomNumber = min + Math.random() * (max - min);
+    let totalQuotes = this.state.quotes.length;
+    console.log(totalQuotes);
+    let min = Math.ceil(1);
+    let max = Math.floor(totalQuotes);
+    let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    this.state.quotes.map(item => {
+    this.state.quotes.forEach(item => {
       if (item.id === randomNumber) {
-        return item;
+        this.setState({
+          currentQuote: { body: item.body, author: item.author }
+        });
       }
+      return 0;
     });
   };
 
   render() {
     return (
       <div style={centerStyling}>
-        <Quote />
+        <Quote
+          clickAction={this.handleClick}
+          quoteText={this.state.currentQuote.body}
+          quoteAuthor={this.state.currentQuote.author}
+        />
       </div>
     );
   }
