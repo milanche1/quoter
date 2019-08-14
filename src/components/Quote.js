@@ -25,11 +25,11 @@ const Quote = props => {
         <Typography variant="h5" component="h3">
           <img
             style={{
-              width: "30px",
+              width: "35px",
               marginRight: "10px",
               borderRadius: "50%"
             }}
-            src={props.img}
+            src={props.imgAvatar}
             alt="avatar"
           />
           {props.quoteAuthor}
@@ -41,7 +41,7 @@ const Quote = props => {
           color="primary"
           className={classes.button}
           onClick={props.clickAction}
-          onKeyDown={props.enterAction}
+          onKeyPress={props.enterAction}
         >
           Next
         </Button>
@@ -53,8 +53,8 @@ const Quote = props => {
 Quote.defaultProps = {
   quoteAuthor: "Random Quote Generator",
   quoteText: "Click Next to generate random quote",
-  img:
-    "https://www.clevelanddentalhc.com/wp-content/uploads/2018/03/sample-avatar.jpg"
+  imgAvatar:
+    "https://www.pinclipart.com/picdir/middle/379-3794464_quote-clipart-inverted-commas-double-quotes-png-transparent.png"
 };
 
 export default Quote;
