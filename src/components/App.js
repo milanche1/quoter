@@ -16,57 +16,56 @@ class App extends Component {
           id: 2,
           author: "Oscar Wilde",
           body: "Be yourself; everyone else is already taken."
+        },
+        {
+          id: 3,
+          author: "Albert Einstein",
+          body:
+            "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."
+        },
+        {
+          id: 4,
+          author: "Cicero",
+          body: "A room without books is like a body without a soul."
+        },
+        {
+          id: 5,
+          author: "Mae West",
+          body: "You only live once, but if you do it right, once is enough"
+        },
+        {
+          id: 6,
+          author: "Gandhi",
+          body: "Be the change that you wish to see in the world."
+        },
+        {
+          id: 7,
+          author: "Mark Twain",
+          body: "If you tell the truth, you don't have to remember anything."
+        },
+        {
+          id: 8,
+          author: "Elbert Hubbard",
+          body:
+            "A friend is someone who knows all about you and still loves you."
+        },
+        {
+          id: 9,
+          author: "Oscar Wilde",
+          body:
+            "I am so clever that sometimes I don't understand a single word of what I am saying."
+        },
+        {
+          id: 10,
+          author: "Ralph Waldo",
+          body:
+            "So be yourself in a world that is constantly trying to make you something else is the greatest accomplishment."
+        },
+        {
+          id: 11,
+          author: "Stephen Chbosky",
+          body: "We accept the love we think we deserve."
         }
-        // ,
-        // {
-        //   id: 3,
-        //   author: "Albert Einstein",
-        //   body:
-        //     "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."
-        // },
-        // {
-        //   id: 4,
-        //   author: "Cicero",
-        //   body: "A room without books is like a body without a soul."
-        // },
-        // {
-        //   id: 5,
-        //   author: "Mae West",
-        //   body: "You only live once, but if you do it right, once is enough"
-        // },
-        // {
-        //   id: 6,
-        //   author: "Gandhi",
-        //   body: "Be the change that you wish to see in the world."
-        // },
-        // {
-        //   id: 7,
-        //   author: "Mark Twain",
-        //   body: "If you tell the truth, you don't have to remember anything."
-        // },
-        // {
-        //   id: 8,
-        //   author: "Elbert Hubbard",
-        //   body:
-        //     "A friend is someone who knows all about you and still loves you."
-        // },
-        // {
-        //   id: 9,
-        //   author: "Oscar Wilde",
-        //   body:
-        //     "I am so clever that sometimes I don't understand a single word of what I am saying."
-        // },
-        // {
-        //   id: 10,
-        //   author: "Ralph Waldo",
-        //   body:
-        //     "So be yourself in a world that is constantly trying to make you something else is the greatest accomplishment."
-        // },
-        // {
-        //   id: 11,
-        //   author: "Stephen Chbosky",
-        //   body: "We accept the love we think we deserve."
-        // }
       ],
       currentQuote: {
         author: "",
@@ -138,6 +137,7 @@ class App extends Component {
               ? this.state.currentQuote.author
               : "Random Quote Machine"
           }
+          buttonText="next"
         />
       </div>
     );
@@ -146,7 +146,7 @@ class App extends Component {
 
 const centerStyling = {
   display: "flex",
-  height: "100vh",
+  minheight: "100vh",
   justifyContent: "center",
   alignItems: "center"
 };

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import { relative } from "path";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,12 +43,18 @@ const Quote = props => {
           className={classes.button}
           onClick={props.clickAction}
           onKeyPress={props.enterAction}
+          style={buttonStyle}
         >
-          Next
+          {props.buttonText}
         </Button>
       </Paper>
     </div>
   );
+};
+
+const buttonStyle = {
+  display: "block",
+  margin: "0 auto"
 };
 
 Quote.defaultProps = {
