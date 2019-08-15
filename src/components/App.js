@@ -68,24 +68,29 @@ class App extends Component {
         }
       ],
       currentQuote: {
+        lastQuoteId: null,
         author: "",
         body: ""
       }
     };
   }
 
-  handleEnter = () => {
-    //doesnt work
+  generateRandom = () => {
     let totalQuotes = this.state.quotes.length;
     let min = Math.ceil(1);
     let max = Math.floor(totalQuotes);
     let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    return randomNumber;
+  };
 
+  handleEnter = () => {
+    //doesnt work
+    let randomNumber = this.generateRandom();
     this.state.quotes.map(item => {
       if (item.id === randomNumber) {
         if (randomNumber === this.state.currentQuote.lastQuoteId) {
           console.log("i found duplicate");
-        } else {
+        } else if (randomNumber !== this.state.currentQuote.lastQuoteId) {
           this.setState({
             currentQuote: {
               body: item.body,
@@ -99,11 +104,7 @@ class App extends Component {
   };
 
   handleClick = () => {
-    let totalQuotes = this.state.quotes.length;
-    let min = Math.ceil(1);
-    let max = Math.floor(totalQuotes);
-    let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-
+    let randomNumber = this.generateRandom();
     this.state.quotes.map(item => {
       if (item.id === randomNumber) {
         if (randomNumber === this.state.currentQuote.lastQuoteId) {

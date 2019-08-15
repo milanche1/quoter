@@ -21,7 +21,7 @@ const Quote = props => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div style={boxStyle}>
       <Paper className={classes.root}>
         <Typography variant="h5" component="h3">
           <img
@@ -36,7 +36,12 @@ const Quote = props => {
           {props.quoteAuthor}
         </Typography>
         <hr />
-        <Typography component="p">{props.quoteText}</Typography>
+        <Typography
+          style={{ paddingBottom: "20px", textAlign: "center" }}
+          component="p"
+        >
+          {props.quoteText}
+        </Typography>
         <Button
           variant="contained"
           color="primary"
@@ -55,6 +60,13 @@ const Quote = props => {
 const buttonStyle = {
   display: "block",
   margin: "0 auto"
+};
+
+const boxStyle = {
+  display: "flex",
+  height: "90vh",
+  alignItems: "center",
+  justifyContent: "center"
 };
 
 Quote.defaultProps = {
